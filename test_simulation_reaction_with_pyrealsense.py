@@ -1,11 +1,11 @@
 import cv2
 import numpy as np
-
+import pyrealsense2 as rs
 from pupil_apriltags import Detector
 import pybullet as p
 import pybullet_data
 import time
-
+#fx=650.9478759765625, fy=650.244140625, cx=646.8314208984375, cy=363.080322265625
 # TODO [] Add camera offset and add arrow to show the direction of the camera
 
 p.connect(p.GUI)
@@ -13,18 +13,21 @@ p.setAdditionalSearchPath(pybullet_data.getDataPath())
 robot = p.loadURDF("dorna.urdf")
 stl_object = p.loadURDF("96wellplate.urdf", basePosition=[0.1, 0.1, 0.1])
 
-cap = cv2.VideoCapture(1)  # Adjust the device index if necessary
-if not cap.isOpened():
-    print("Cannot open camera")
-    exit()
+# Configure depth and color streams
+pipeline = rs.pipeline()
+config = rs.config()
+config.enable_stream(rs.stream.depth, 1280, 720, rs.format.z16, 30)
+config.enable_stream(rs.stream.color, 1280 , 720, rs.format.bgr8, 30)
 
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1280)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
-
-#fx=650.9478759765625, fy=650.244140625, cx=646.8314208984375, cy=363.080322265625
-fx, fy, cx, cy = 650.9478759765625,650.244140625,646.8314208984375,363.080322265625
+# Start streaming
+profile = pipeline.start(config)
+depth_sensor = profile.get_device().first_depth_sensor()
+depth_scale = depth_sensor.get_depth_scale()  # Get the depth sensor's depth scale
+intrinsics = profile.get_stream(rs.stream.color).as_video_stream_profile().get_intrinsics()
+fx, fy, cx, cy = intrinsics.fx, intrinsics.fy, intrinsics.ppx, intrinsics.ppy
+print(f"Camera intrinsics: fx={fx}, fy={fy}, cx={cx}, cy={cy}")
 camera_matrix = np.array([[fx, 0, cx], [0, fy, cy], [0, 0, 1]])
-tag_size = 0.06  # Size of the AprilTag side in meters
+tag_size = 0.01  # Size of the AprilTag side in meters
 tag_to_object_offset_position = [0.1, 0.03, -0.06]  # Adjust based on tag position vs. object center
 tag_to_object_offset_orientation = [0, -1.57079632679, 0]  # Adjust if there's an orientation offset
 camera_offset_position = [-0.05, 0, -0.05]  # Example offset: adjust accordingly
@@ -104,12 +107,14 @@ def detect_apriltag():
     detected_position = None
     detected_orientation = None
 
-    ret, color_image = cap.read() 
-    if not ret:
-        print("Failed to grab frame")
-        return None, None
+    frames = pipeline.wait_for_frames()
+    depth_frame = frames.get_depth_frame()
+    color_frame = frames.get_color_frame()
+    if not depth_frame or not color_frame:
+        return detected_position, detected_orientation
 
-
+    depth_image = np.asanyarray(depth_frame.get_data())
+    color_image = np.asanyarray(color_frame.get_data())
     color_image=cv2.rotate(color_image, cv2.ROTATE_180)
 
     gray = cv2.cvtColor(color_image, cv2.COLOR_BGR2GRAY)
