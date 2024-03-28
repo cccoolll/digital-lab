@@ -5,15 +5,21 @@ from pupil_apriltags import Detector
 import pybullet as p
 import pybullet_data
 import time
-
+import os
+# Get the directory of the current script
+script_dir = os.path.dirname(os.path.abspath(__file__))
 # TODO [] Add camera offset and add arrow to show the direction of the camera
 
 p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
-robot = p.loadURDF("dorna.urdf")
-stl_object = p.loadURDF("96wellplate.urdf", basePosition=[0.1, 0.1, 0.1])
 
-cap = cv2.VideoCapture(1)  # Adjust the device index if necessary
+dorna_path = os.path.join(script_dir, 'dorna.urdf')
+stl_path = os.path.join(script_dir, '96wellplate.urdf')
+robot = p.loadURDF(dorna_path)
+
+stl_object = p.loadURDF(stl_path, basePosition=[0.1, 0.1, 0.1])
+
+cap = cv2.VideoCapture(2)  # Adjust the device index if necessary
 if not cap.isOpened():
     print("Cannot open camera")
     exit()
@@ -129,7 +135,7 @@ def detect_apriltag():
         R = tag.pose_R  # Rotation matrix
         ang1, ang2 , ang3 = euler_from_rotation_matrix(R)
 
-        detected_position = [ tvec[1][0],tvec[0][0], tvec[2][0]]
+        detected_position = [ tvec[1][0],tvec[0][0], -tvec[2][0]]
         detected_orientation = [ang2, ang1, -ang3]  # Assuming PyBullet uses the same convention
 
         # Display tag ID and orientation on the frame
@@ -171,4 +177,4 @@ while True:
         p.resetBasePositionAndOrientation(stl_object, world_pos, world_orient)
 
     p.stepSimulation()
-    time.sleep(1./240)
+    time.sleep(1./24)
