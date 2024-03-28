@@ -8,8 +8,7 @@ p.setGravity(0, 0, -10)
 cubeStartOrientation = p.getQuaternionFromEuler([-1.57079632679, 0, 0])
 p.setPhysicsEngineParameter(enableFileCaching=0) # Disable caching for development
 p.configureDebugVisualizer(p.COV_ENABLE_SHADOWS, 1) # Enable shadows
-plane = p.loadURDF("C:/Users/songtao.cheng/Documents/myphd/imaging_farm/Simulated_lab/CAD/SimulatedLab/urdf/SimulatedLab.urdf",[-1,1,0],useFixedBase=True)
-#cube = p.loadURDF("cube.urdf", [0, 0, 1])
+plane = p.loadURDF("SimulatedLab/urdf/SimulatedLab.urdf",[-1,1,0],useFixedBase=True)
 
 
 while True:

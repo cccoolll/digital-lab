@@ -1,0 +1,476 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="SimulatedLab">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.882450083402916 -0.0526449484744184 1.11253475066502"
+        rpy="0 0 0" />
+      <mass
+        value="213.077739725307" />
+      <inertia
+        ixx="10.6265711330119"
+        ixy="3.16319890133322E-06"
+        ixz="-0.000273605139091784"
+        iyy="59.6569109872281"
+        iyz="2.50503169981725E-05"
+        izz="50.2343831378322" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="slidebase">
+    <inertial>
+      <origin
+        xyz="-0.00430887611330522 0.0405868154674266 -0.0726026016397722"
+        rpy="0 0 0" />
+      <mass
+        value="0.419983323514115" />
+      <inertia
+        ixx="0.000510747138186801"
+        ixy="1.16604245236442E-06"
+        ixz="2.96122686631862E-10"
+        iyy="0.00103925065648366"
+        iyz="-1.13485365410908E-09"
+        izz="0.000608866562581119" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/slidebase.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/slidebase.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="slide"
+    type="prismatic">
+    <origin
+      xyz="0.18271 -1.1793 0.085526"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="slidebase" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-0.5"
+      upper="1.5"
+      effort="10"
+      velocity="10" />
+  </joint>
+  <link
+    name="robot-baseboard">
+    <inertial>
+      <origin
+        xyz="8.98130086339766E-05 0.0110031332380765 -0.00012482678245207"
+        rpy="0 0 0" />
+      <mass
+        value="0.550394179039637" />
+      <inertia
+        ixx="0.000669676947042917"
+        ixy="1.4512609405996E-07"
+        ixz="-1.9344451107504E-06"
+        iyy="0.00155581184541352"
+        iyz="-2.03636599203752E-07"
+        izz="0.000918840915094092" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/robot-baseboard.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/robot-baseboard.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="robot-base"
+    type="fixed">
+    <origin
+      xyz="-0.0041396 0.055763 -0.072527"
+      rpy="0 1.5708 0" />
+    <parent
+      link="slidebase" />
+    <child
+      link="robot-baseboard" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="-0.00137814115955209 0.0623926727171333 -0.0499512975091405"
+        rpy="0 0 0" />
+      <mass
+        value="0.172282922122244" />
+      <inertia
+        ixx="8.78316405694676E-05"
+        ixy="1.68362793582947E-07"
+        ixz="2.03720158952711E-07"
+        iyy="0.000153759631270119"
+        iyz="5.31270447189605E-07"
+        izz="8.88242003612711E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="fix2"
+    type="fixed">
+    <origin
+      xyz="0.0019527 -0.0078131 0.051373"
+      rpy="0 0 0" />
+    <parent
+      link="robot-baseboard" />
+    <child
+      link="base" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="arm1">
+    <inertial>
+      <origin
+        xyz="0.00685552431291025 0.113055781057778 -0.0319364240354736"
+        rpy="0 0 0" />
+      <mass
+        value="0.675270738615706" />
+      <inertia
+        ixx="0.00202049846336568"
+        ixy="2.15956087776229E-06"
+        ixz="-1.28543584963193E-05"
+        iyy="0.00191415502822903"
+        iyz="-0.000448958479297983"
+        izz="0.000845244306077448" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/arm1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/arm1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base-arm"
+    type="continuous">
+    <origin
+      xyz="-0.0019527 0.047213 -0.051373"
+      rpy="0 0.90193 0" />
+    <parent
+      link="base" />
+    <child
+      link="arm1" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="arm2">
+    <inertial>
+      <origin
+        xyz="0.00934921098679453 0.0509684868927752 -6.28015551451533E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.271676187941207" />
+      <inertia
+        ixx="0.00133562992134093"
+        ixy="-1.00028000414232E-08"
+        ixz="1.25454098606932E-11"
+        iyy="0.000109874066354682"
+        iyz="-8.59491582287778E-09"
+        izz="0.0012911750150457" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/arm2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/arm2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1-2"
+    type="continuous">
+    <origin
+      xyz="0 0.19707 0.095476"
+      rpy="-0.3179 0 0" />
+    <parent
+      link="arm1" />
+    <child
+      link="arm2" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="arm3">
+    <inertial>
+      <origin
+        xyz="-0.00340436832204571 -5.10775210560421E-06 0.0310100724190842"
+        rpy="0 0 0" />
+      <mass
+        value="0.29343830579726" />
+      <inertia
+        ixx="0.000573707663469009"
+        ixy="-3.24235729267661E-09"
+        ixz="2.23455412128454E-06"
+        iyy="0.000542174589055117"
+        iyz="3.70509484975946E-09"
+        izz="6.73628374394042E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/arm3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/arm3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2-3"
+    type="continuous">
+    <origin
+      xyz="0 0.2032 0"
+      rpy="0.3603 0 0" />
+    <parent
+      link="arm2" />
+    <child
+      link="arm3" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="wrist">
+    <inertial>
+      <origin
+        xyz="-7.31350022550314E-05 2.94878423623413E-07 1.76428810034768E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.0370569488760525" />
+      <inertia
+        ixx="5.29550808332605E-06"
+        ixy="8.65226982027262E-15"
+        ixz="3.75541611565549E-11"
+        iyy="7.32391951504172E-06"
+        iyz="1.49940044678242E-08"
+        izz="8.22715218619967E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/wrist.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/wrist.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm-wrist"
+    type="continuous">
+    <origin
+      xyz="0 0 0.1524"
+      rpy="0.76686 0 -3.1416" />
+    <parent
+      link="arm3" />
+    <child
+      link="wrist" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="wrist2">
+    <inertial>
+      <origin
+        xyz="0.000159431647707875 -0.00141738231317168 0.0166358819473202"
+        rpy="0 0 0" />
+      <mass
+        value="0.04637707880367" />
+      <inertia
+        ixx="1.11304886081517E-05"
+        ixy="1.22780675373289E-08"
+        ixz="1.55688031841332E-09"
+        iyy="9.06340033239141E-06"
+        iyz="-2.81662666076337E-09"
+        izz="1.17547900426092E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/wrist2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/wrist2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist1-2"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="0.029439 0.010502 2.4563" />
+    <parent
+      link="wrist" />
+    <child
+      link="wrist2" />
+    <axis
+      xyz="0 0.016592 0.99986" />
+  </joint>
+</robot>
