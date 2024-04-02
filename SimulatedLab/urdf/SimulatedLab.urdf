@@ -5,20 +5,20 @@
 <robot
   name="SimulatedLab">
   <link
-    name="base_link">
+    name="OpticalTable">
     <inertial>
       <origin
-        xyz="0.882450083402916 -0.0526449484744184 1.11253475066502"
+        xyz="0.90651 -0.06459 1.1186"
         rpy="0 0 0" />
       <mass
-        value="213.077739725307" />
+        value="199.39" />
       <inertia
-        ixx="10.6265711330119"
-        ixy="3.16319890133322E-06"
-        ixz="-0.000273605139091784"
-        iyy="59.6569109872281"
-        iyz="2.50503169981725E-05"
-        izz="50.2343831378322" />
+        ixx="10.566"
+        ixy="2.822E-10"
+        ixz="-1.278E-10"
+        iyy="52.367"
+        iyz="-7.1305E-12"
+        izz="42.992" />
     </inertial>
     <visual>
       <origin
@@ -26,12 +26,10 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://SimulatedLab/meshes/base_link.STL" />
+          filename="package://SimulatedLab/meshes/OpticalTable.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      <material name="OpticalTableColor">
+        <color rgba="0.8 0.8 0.8 1" />
       </material>
     </visual>
     <collision>
@@ -40,25 +38,25 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://SimulatedLab/meshes/base_link.STL" />
+          filename="package://SimulatedLab/meshes/OpticalTable.STL" />
       </geometry>
     </collision>
   </link>
   <link
-    name="slidebase">
+    name="SlideRail">
     <inertial>
       <origin
-        xyz="-0.00430887611330522 0.0405868154674266 -0.0726026016397722"
+        xyz="0.0092792 -0.043093 0.60802"
         rpy="0 0 0" />
       <mass
-        value="0.419983323514115" />
+        value="9.3221" />
       <inertia
-        ixx="0.000510747138186801"
-        ixy="1.16604245236442E-06"
-        ixz="2.96122686631862E-10"
-        iyy="0.00103925065648366"
-        iyz="-1.13485365410908E-09"
-        izz="0.000608866562581119" />
+        ixx="7.2203"
+        ixy="6.5868E-06"
+        ixz="2.4777E-07"
+        iyy="7.2215"
+        iyz="-2.2278E-08"
+        izz="0.0048847" />
     </inertial>
     <visual>
       <origin
@@ -66,12 +64,10 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://SimulatedLab/meshes/slidebase.STL" />
+          filename="package://SimulatedLab/meshes/SlideRail.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="1 1 1 1" />
+      <material name="SlideRailColor">
+        <color rgba="0.6 0.6 0.6 1" />
       </material>
     </visual>
     <collision>
@@ -80,96 +76,38 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://SimulatedLab/meshes/slidebase.STL" />
+          filename="package://SimulatedLab/meshes/SlideRail.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="slide"
-    type="prismatic">
-    <origin
-      xyz="0.18271 -1.1793 0.085526"
-      rpy="1.5708 0 -1.5708" />
-    <parent
-      link="base_link" />
-    <child
-      link="slidebase" />
-    <axis
-      xyz="0 0 1" />
-    <limit
-      lower="-0.5"
-      upper="1.5"
-      effort="10"
-      velocity="10" />
-  </joint>
-  <link
-    name="robot-baseboard">
-    <inertial>
-      <origin
-        xyz="8.98130086339766E-05 0.0110031332380765 -0.00012482678245207"
-        rpy="0 0 0" />
-      <mass
-        value="0.550394179039637" />
-      <inertia
-        ixx="0.000669676947042917"
-        ixy="1.4512609405996E-07"
-        ixz="-1.9344451107504E-06"
-        iyy="0.00155581184541352"
-        iyz="-2.03636599203752E-07"
-        izz="0.000918840915094092" />
-    </inertial>
-    <visual>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://SimulatedLab/meshes/robot-baseboard.STL" />
-      </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.898039215686275 0.917647058823529 0.929411764705882 1" />
-      </material>
-    </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://SimulatedLab/meshes/robot-baseboard.STL" />
-      </geometry>
-    </collision>
-  </link>
-  <joint
-    name="robot-base"
+    name="rail-fix"
     type="fixed">
     <origin
-      xyz="-0.0041396 0.055763 -0.072527"
-      rpy="0 1.5708 0" />
+      xyz="0.14169 -1.1751 0.052089"
+      rpy="-1.5708 0 -1.5708" />
     <parent
-      link="slidebase" />
+      link="OpticalTable" />
     <child
-      link="robot-baseboard" />
+      link="SlideRail" />
     <axis
       xyz="0 0 0" />
   </joint>
   <link
-    name="base">
+    name="SlideBrick">
     <inertial>
       <origin
-        xyz="-0.00137814115955209 0.0623926727171333 -0.0499512975091405"
+        xyz="-0.0043089 0.040587 0.072566"
         rpy="0 0 0" />
       <mass
-        value="0.172282922122244" />
+        value="0.41998" />
       <inertia
-        ixx="8.78316405694676E-05"
-        ixy="1.68362793582947E-07"
-        ixz="2.03720158952711E-07"
-        iyy="0.000153759631270119"
-        iyz="5.31270447189605E-07"
-        izz="8.88242003612711E-05" />
+        ixx="0.00051075"
+        ixy="1.166E-06"
+        ixz="2.9612E-10"
+        iyy="0.0010393"
+        iyz="-1.1349E-09"
+        izz="0.00060887" />
     </inertial>
     <visual>
       <origin
@@ -177,12 +115,10 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://SimulatedLab/meshes/base.STL" />
+          filename="package://SimulatedLab/meshes/SlideBrick.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      <material name="SlideBrickColor">
+        <color rgba="0.7 0.7 0.7 1" />
       </material>
     </visual>
     <collision>
@@ -191,20 +127,111 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://SimulatedLab/meshes/base.STL" />
+          filename="package://SimulatedLab/meshes/SlideBrick.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="fix2"
+    name="Slide"
+    type="prismatic">
+    <origin
+      xyz="0.0041396 -0.033447 -0.7972"
+      rpy="3.1416 0 0" />
+    <parent
+      link="SlideRail" />
+    <child
+      link="SlideBrick" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="-3.5"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Rail-Robot-connector">
+    <inertial>
+      <origin
+        xyz="8.9813E-05 0.011003 -0.00012483"
+        rpy="0 0 0" />
+      <mass
+        value="0.55039" />
+      <inertia
+        ixx="0.00066968"
+        ixy="1.4513E-07"
+        ixz="-1.9344E-06"
+        iyy="0.0015558"
+        iyz="-2.0364E-07"
+        izz="0.00091884" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/Rail-Robot-connector.STL" />
+      </geometry>
+      <material name="DornaArmColor">
+        <color rgba="0.1 0.5 0.8 1" />
+      </material>
+    </visual>
+
+  </link>
+  <joint
+    name="Rail-Robot-connector-fix"
+    type="fixed">
+    <origin
+      xyz="-0.0041396 0.055847 0.072641"
+      rpy="0 1.5708 0" />
+    <parent
+      link="SlideBrick" />
+    <child
+      link="Rail-Robot-connector" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="arm-base">
+    <inertial>
+      <origin
+        xyz="-0.0013781 0.062393 -0.049951"
+        rpy="0 0 0" />
+      <mass
+        value="0.17228" />
+      <inertia
+        ixx="8.7832E-05"
+        ixy="1.6836E-07"
+        ixz="2.0372E-07"
+        iyy="0.00015376"
+        iyz="5.3127E-07"
+        izz="8.8824E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/arm-base.STL" />
+      </geometry>
+      <material name="DornaArmColor">
+        <color rgba="0.1 0.5 0.8 1" />
+      </material>
+    </visual>
+    
+  </link>
+  <joint
+    name="armbaseJ"
     type="fixed">
     <origin
       xyz="0.0019527 -0.0078131 0.051373"
       rpy="0 0 0" />
     <parent
-      link="robot-baseboard" />
+      link="Rail-Robot-connector" />
     <child
-      link="base" />
+      link="arm-base" />
     <axis
       xyz="0 0 0" />
   </joint>
@@ -212,17 +239,17 @@
     name="arm1">
     <inertial>
       <origin
-        xyz="0.00685552431291025 0.113055781057778 -0.0319364240354736"
+        xyz="0.0068555 0.11306 -0.031936"
         rpy="0 0 0" />
       <mass
-        value="0.675270738615706" />
+        value="0.67527" />
       <inertia
-        ixx="0.00202049846336568"
-        ixy="2.15956087776229E-06"
-        ixz="-1.28543584963193E-05"
-        iyy="0.00191415502822903"
-        iyz="-0.000448958479297983"
-        izz="0.000845244306077448" />
+        ixx="0.0020205"
+        ixy="2.1595E-06"
+        ixz="-1.2854E-05"
+        iyy="0.0019142"
+        iyz="-0.00044896"
+        izz="0.00084524" />
     </inertial>
     <visual>
       <origin
@@ -232,50 +259,45 @@
         <mesh
           filename="package://SimulatedLab/meshes/arm1.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      <material name="DornaArmColor">
+        <color rgba="0.1 0.5 0.8 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://SimulatedLab/meshes/arm1.STL" />
-      </geometry>
-    </collision>
+
   </link>
   <joint
-    name="base-arm"
-    type="continuous">
+    name="arm1J"
+    type="revolute">
     <origin
-      xyz="-0.0019527 0.047213 -0.051373"
-      rpy="0 0.90193 0" />
+      xyz="-0.0019527 0.047214 -0.051373"
+      rpy="1.5708 -1.5708 -1.5708" />
     <parent
-      link="base" />
+      link="arm-base" />
     <child
       link="arm1" />
     <axis
       xyz="0 1 0" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
     name="arm2">
     <inertial>
       <origin
-        xyz="0.00934921098679453 0.0509684868927752 -6.28015551451533E-06"
+        xyz="0.0093492 0.050968 -6.2717E-06"
         rpy="0 0 0" />
       <mass
-        value="0.271676187941207" />
+        value="0.27168" />
       <inertia
-        ixx="0.00133562992134093"
-        ixy="-1.00028000414232E-08"
-        ixz="1.25454098606932E-11"
-        iyy="0.000109874066354682"
-        iyz="-8.59491582287778E-09"
-        izz="0.0012911750150457" />
+        ixx="0.0013356"
+        ixy="-1.0161E-08"
+        ixz="1.0591E-11"
+        iyy="0.00010987"
+        iyz="-8.797E-09"
+        izz="0.0012912" />
     </inertial>
     <visual>
       <origin
@@ -285,50 +307,45 @@
         <mesh
           filename="package://SimulatedLab/meshes/arm2.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      <material name="DornaArmColor">
+        <color rgba="0.1 0.5 0.8 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://SimulatedLab/meshes/arm2.STL" />
-      </geometry>
-    </collision>
+
   </link>
   <joint
-    name="arm1-2"
-    type="continuous">
+    name="arm2J"
+    type="revolute">
     <origin
       xyz="0 0.19707 0.095476"
-      rpy="-0.3179 0 0" />
+      rpy="-1.5675 0 0" />
     <parent
       link="arm1" />
     <child
       link="arm2" />
     <axis
       xyz="1 0 0" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
     name="arm3">
     <inertial>
       <origin
-        xyz="-0.00340436832204571 -5.10775210560421E-06 0.0310100724190842"
+        xyz="-0.0034044 -5.1122E-06 0.03101"
         rpy="0 0 0" />
       <mass
-        value="0.29343830579726" />
+        value="0.29344" />
       <inertia
-        ixx="0.000573707663469009"
-        ixy="-3.24235729267661E-09"
-        ixz="2.23455412128454E-06"
-        iyy="0.000542174589055117"
-        iyz="3.70509484975946E-09"
-        izz="6.73628374394042E-05" />
+        ixx="0.00057371"
+        ixy="-3.2473E-09"
+        ixz="2.2346E-06"
+        iyy="0.00054217"
+        iyz="3.7859E-09"
+        izz="6.7363E-05" />
     </inertial>
     <visual>
       <origin
@@ -338,10 +355,8 @@
         <mesh
           filename="package://SimulatedLab/meshes/arm3.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      <material name="DornaArmColor">
+        <color rgba="0.1 0.5 0.8 1" />
       </material>
     </visual>
     <collision>
@@ -355,33 +370,38 @@
     </collision>
   </link>
   <joint
-    name="arm2-3"
-    type="continuous">
+    name="arm3J"
+    type="revolute">
     <origin
       xyz="0 0.2032 0"
-      rpy="0.3603 0 0" />
+      rpy="0.89363 0 0" />
     <parent
       link="arm2" />
     <child
       link="arm3" />
     <axis
       xyz="1 0 0" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
-    name="wrist">
+    name="wrist1">
     <inertial>
       <origin
-        xyz="-7.31350022550314E-05 2.94878423623413E-07 1.76428810034768E-05"
+        xyz="-5.1119E-05 5.5335E-07 3.3649E-05"
         rpy="0 0 0" />
       <mass
-        value="0.0370569488760525" />
+        value="0.019467" />
       <inertia
-        ixx="5.29550808332605E-06"
-        ixy="8.65226982027262E-15"
-        ixz="3.75541611565549E-11"
-        iyy="7.32391951504172E-06"
-        iyz="1.49940044678242E-08"
-        izz="8.22715218619967E-06" />
+        ixx="1.9403E-06"
+        ixy="-2.6043E-12"
+        ixz="3.7257E-11"
+        iyy="5.5184E-06"
+        iyz="1.4992E-08"
+        izz="6.4217E-06" />
     </inertial>
     <visual>
       <origin
@@ -389,52 +409,47 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://SimulatedLab/meshes/wrist.STL" />
+          filename="package://SimulatedLab/meshes/wrist1.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+        <material name="DornaArmColor">
+        <color rgba="0.1 0.5 0.8 1" />
       </material>
     </visual>
-    <collision>
-      <origin
-        xyz="0 0 0"
-        rpy="0 0 0" />
-      <geometry>
-        <mesh
-          filename="package://SimulatedLab/meshes/wrist.STL" />
-      </geometry>
-    </collision>
+
   </link>
   <joint
     name="arm-wrist"
-    type="continuous">
+    type="revolute">
     <origin
       xyz="0 0 0.1524"
-      rpy="0.76686 0 -3.1416" />
+      rpy="2.35 0 3.1416" />
     <parent
       link="arm3" />
     <child
-      link="wrist" />
+      link="wrist1" />
     <axis
       xyz="1 0 0" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
   </joint>
   <link
     name="wrist2">
     <inertial>
       <origin
-        xyz="0.000159431647707875 -0.00141738231317168 0.0166358819473202"
+        xyz="-9.7487E-05 0.0011324 0.03436"
         rpy="0 0 0" />
       <mass
-        value="0.04637707880367" />
+        value="0.010769" />
       <inertia
-        ixx="1.11304886081517E-05"
-        ixy="1.22780675373289E-08"
-        ixz="1.55688031841332E-09"
-        iyy="9.06340033239141E-06"
-        iyz="-2.81662666076337E-09"
-        izz="1.17547900426092E-05" />
+        ixx="3.7831E-06"
+        ixy="-6.8973E-13"
+        ixz="-2.093E-12"
+        iyy="3.859E-06"
+        iyz="-1.1375E-07"
+        izz="8.956E-07" />
     </inertial>
     <visual>
       <origin
@@ -444,10 +459,60 @@
         <mesh
           filename="package://SimulatedLab/meshes/wrist2.STL" />
       </geometry>
-      <material
-        name="">
-        <color
-          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      <material name="DornaArmColor">
+        <color rgba="0.1 0.5 0.8 1" />
+      </material>
+    </visual>
+
+  </link>
+  <joint
+    name="wrist2-j"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="wrist1" />
+    <child
+      link="wrist2" />
+    <axis
+      xyz="0 0.016592 0.99986" />
+    <limit
+      lower="-180"
+      upper="180"
+      effort="0"
+      velocity="0" />
+    <mimic
+      joint="arm1J"
+      multiplier="1"
+      offset="0" />
+  </joint>
+  <link
+    name="SquidMicroscope">
+    <inertial>
+      <origin
+        xyz="0.0005327 0.10804 -0.0085527"
+        rpy="0 0 0" />
+      <mass
+        value="3.6417" />
+      <inertia
+        ixx="0.052832"
+        ixy="-3.9904E-06"
+        ixz="-0.00028322"
+        iyy="0.067318"
+        iyz="6.7962E-07"
+        izz="0.019526" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/SquidMicroscope.STL" />
+      </geometry>
+     <material name="SquidMicroscopeColor">
+        <color rgba="0.5 0.1 0.6 1" />
       </material>
     </visual>
     <collision>
@@ -456,21 +521,72 @@
         rpy="0 0 0" />
       <geometry>
         <mesh
-          filename="package://SimulatedLab/meshes/wrist2.STL" />
+          filename="package://SimulatedLab/meshes/SquidMicroscope.STL" />
       </geometry>
     </collision>
   </link>
   <joint
-    name="wrist1-2"
-    type="continuous">
+    name="microscope-fix"
+    type="fixed">
     <origin
-      xyz="0 0 0"
-      rpy="0.029439 0.010502 2.4563" />
+      xyz="-0.073823 -0.66731 0.059932"
+      rpy="1.5708 0 3.1416" />
     <parent
-      link="wrist" />
+      link="OpticalTable" />
     <child
-      link="wrist2" />
+      link="SquidMicroscope" />
     <axis
-      xyz="0 0.016592 0.99986" />
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="MicroplateHolder">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/MicroplateHolder.STL" />
+      </geometry>
+      <material name="MicroplateHolderColor">
+        <color rgba="0.9 0.8 0.1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/MicroplateHolder.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="hotel-fix"
+    type="fixed">
+    <origin
+      xyz="0.818329937973544 -0.725482308658135 0.129836500776815"
+      rpy="1.5707963267949 0 0" />
+    <parent
+      link="OpticalTable" />
+    <child
+      link="MicroplateHolder" />
+    <axis
+      xyz="0 0 0" />
   </joint>
 </robot>
