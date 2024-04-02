@@ -221,6 +221,16 @@
       </material>
     </visual>
     
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/arm-base.STL" />
+      </geometry>
+    </collision>
+
   </link>
   <joint
     name="armbaseJ"
@@ -263,7 +273,15 @@
         <color rgba="0.1 0.5 0.8 1" />
       </material>
     </visual>
-
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://SimulatedLab/meshes/arm1.STL" />
+      </geometry>
+    </collision>
   </link>
   <joint
     name="arm1J"
