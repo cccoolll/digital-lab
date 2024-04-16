@@ -1,0 +1,10 @@
+Joint 0 status: Pos=0.000, Vel=0.000
+Joint 1 status: Pos=-0.58, Vel=0.000
+Joint 2 status: Pos=-89.753, Vel=-0.000
+Joint 3 status: Pos=-72.254, Vel=0.000
+Joint 4 status: Pos=87.724, Vel=0.000
+Joint 5 status: Pos=-2.975, Vel=-0.000
+Joint 6 status: Pos=56.961, Vel=0.000
+Joint 7 status: Pos=0.000, Vel=0.000
+Joint 8 status: Pos=0.000, Vel=0.000
+Joint 9 status: Pos=0.000, Vel=0.000

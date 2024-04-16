@@ -1,0 +1,49 @@
+{
+
+    "sequences": [
+        {
+            "sequence_id": 0,
+            "description": "Initial Positioning",
+            "note": ["This sequence is used to move the robot to the initial position."],
+            "actions": [
+                {"id":0,"cmd":"slide_to","position":-0.55, "vel":0.1,"accel":500,"jerk":2000}
+            ] 
+        },  
+        {
+            "sequence_id": 1,
+            "description": "Preparation and Initial Positioning",
+            "note": ["This sequence is used to prepare the robot for the next steps."],
+            "actions": [
+                {"id":1,"cmd":"jmove","rel":0,"j0":0,"j1":-119.58,"j2":103.6,"j3":-103.6,"j4":0,"vel":20,"accel":500,"jerk":2000}
+            ]
+          },
+         {
+            "sequence_id": 2,
+            "description": "Further Positioning",
+            "note": ["This sequence is used for further precise positioning."],
+            "actions": [
+                {"id":2,"cmd":"jmove","rel":0,"j0":-90,"j1":-119.58,"j2":103.6,"j3":-103.6,"j4":0,"vel":20,"accel":500,"jerk":2000}
+            ]
+          },
+          {
+            "sequence_id": 3,
+            "description": "Further Positioning",
+            "note": ["This sequence is used for further precise positioning."],
+            "actions": [
+                {"id":2,"cmd":"jmove","rel":0,"j0":-90,"j1":-51.38,"j2":71.61,"j3":-67.78,"j4":0,"vel":20,"accel":500,"jerk":2000}
+            ]
+          },
+          {
+            "sequence_id": 4,
+            "description": "Grabbing a Well Plate",
+            "note": ["This sequence is used to grab the specified well plate."],
+            "actions": [
+                {"id": 3, "cmd": "grab_plate", "plate_index": 6}
+            ]
+        }
+        
+          
+    
+    ]
+  }
+  
