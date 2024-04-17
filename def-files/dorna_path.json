@@ -6,7 +6,8 @@
             "description": "Initial Positioning",
             "note": ["This sequence is used to move the robot to the initial position."],
             "actions": [
-                {"id":0,"cmd":"slide_to","position":-0.55, "vel":0.1,"accel":500,"jerk":2000}
+                {"id":0,"cmd":"slide_to","position":-0.59682, "vel":0.05,"accel":500,"jerk":2000}
+                
             ] 
         },  
         {
@@ -38,9 +39,22 @@
             "description": "Grabbing a Well Plate",
             "note": ["This sequence is used to grab the specified well plate."],
             "actions": [
-                {"id": 3, "cmd": "grab_plate", "plate_index": 6}
+                {"id": 3, "cmd": "grab_plate", "plate_index": 0},
+                {"id":2,"cmd":"jmove","rel":0,"j0":-90,"j1":-119.58,"j2":103.6,"j3":-103.6,"j4":0,"vel":20,"accel":500,"jerk":2000}
             ]
+        },
+        {
+        "sequence_id": 5,
+        "description": "Put the well plate to microscope",
+        "note": ["This sequence is used to put the specified well plate."],
+        "actions": [
+            {"id":2,"cmd":"jmove","rel":0,"j0":0,"j1":-119.58,"j2":103.6,"j3":-103.6,"j4":0,"vel":20,"accel":500,"jerk":2000},
+            {"id":0,"cmd":"slide_to","position":0, "vel":0.03,"accel":500,"jerk":2000},
+            {"id":2,"cmd":"jmove","rel":0,"j0":-90,"j1":-119.58,"j2":103.6,"j3":-103.6,"j4":0,"vel":20,"accel":500,"jerk":2000},
+            {"id":2,"cmd":"jmove","rel":0,"j0":-90,"j1":-71.85,"j2":109.41,"j3":-52.43,"j4":0,"vel":20,"accel":500,"jerk":2000}
+        ]
         }
+
         
           
     
