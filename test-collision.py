@@ -87,7 +87,7 @@ def linear_move_to(lab_id, gripper_link_index, target_position, target_orientati
                                 jointIndex=joint_index,
                                 controlMode=p.POSITION_CONTROL,
                                 targetPosition=target_position,
-                                positionGain=0.01,  # Tuned for stability
+                                positionGain=0.05,  # Tuned for stability
                                 maxVelocity=vel)
         p.stepSimulation()  # simulate the environment to reflect changes
         if check_collision():
@@ -132,7 +132,7 @@ def check_collision(collision_threshold=0.0001):
     return False
 
 def slide_to(lab_id, position, speed, wait_for_completion=True):
-    rail_joint_index = 1  
+    rail_joint_index = 1
     p.setJointMotorControl2(bodyUniqueId=lab_id,
                             jointIndex=rail_joint_index,
                             controlMode=p.POSITION_CONTROL,
@@ -165,7 +165,7 @@ def dorna_execute(lab_id, wellplates, sequence):
                                         jointIndex=jointIndex,
                                         controlMode=p.POSITION_CONTROL,
                                         targetPosition=joint_position,
-                                        positionGain=0.01,  # Adjust gain as needed for stability
+                                        positionGain=0.05,  # Adjust gain as needed for stability
                                         force=500)  # Adjust maximum force if necessary
 
             all_in_position = False

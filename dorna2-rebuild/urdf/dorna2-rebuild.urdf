@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="dorna2-rebuild">
+  <link
+    name="arm_base">
+    <inertial>
+      <origin
+        xyz="0.01303 -0.0011498 -0.037465"
+        rpy="0 0 0" />
+      <mass
+        value="0.72268" />
+      <inertia
+        ixx="0.00075751"
+        ixy="1.7307E-06"
+        ixz="3.1352E-07"
+        iyy="0.0010077"
+        iyz="-3.2751E-07"
+        izz="0.0017096" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/arm_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/arm_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="arm1">
+    <inertial>
+      <origin
+        xyz="0.0068555 0.0936 -0.031936"
+        rpy="0 0 0" />
+      <mass
+        value="0.67527" />
+      <inertia
+        ixx="0.0020205"
+        ixy="2.1595E-06"
+        ixz="-1.2854E-05"
+        iyy="0.0019142"
+        iyz="-0.00044896"
+        izz="0.00084524" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/arm1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/arm1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1j"
+    type="revolute">
+    <origin
+      xyz="0.012824 -0.0009058 0"
+      rpy="1.5708 0 -1.5708" />
+    <parent
+      link="arm_base" />
+    <child
+      link="arm1" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="-175"
+      upper="180"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="arm2">
+    <inertial>
+      <origin
+        xyz="0.010255 0.050968 -6.2717E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.27168" />
+      <inertia
+        ixx="0.0013356"
+        ixy="-1.0161E-08"
+        ixz="1.0593E-11"
+        iyy="0.00010987"
+        iyz="-8.7967E-09"
+        izz="0.0012912" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/arm2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/arm2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2j"
+    type="revolute">
+    <origin
+      xyz="-0.0009058 0.17761 0.095476"
+      rpy="1.5708 0 0" />
+    <parent
+      link="arm1" />
+    <child
+      link="arm2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-91"
+      upper="181"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="arm3">
+    <inertial>
+      <origin
+        xyz="-0.0024986 -5.1124E-06 0.03101"
+        rpy="0 0 0" />
+      <mass
+        value="0.29344" />
+      <inertia
+        ixx="0.00057371"
+        ixy="-3.2473E-09"
+        ixz="2.2346E-06"
+        iyy="0.00054217"
+        iyz="3.7841E-09"
+        izz="6.7363E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/arm3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/arm3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm3j"
+    type="revolute">
+    <origin
+      xyz="0 0.2032 0"
+      rpy="-1.5708 0 0" />
+    <parent
+      link="arm2" />
+    <child
+      link="arm3" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-142"
+      upper="142"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist1">
+    <inertial>
+      <origin
+        xyz="4.6381E-05 5.5335E-07 3.3649E-05"
+        rpy="0 0 0" />
+      <mass
+        value="0.019467" />
+      <inertia
+        ixx="1.9403E-06"
+        ixy="-2.605E-12"
+        ixz="3.7253E-11"
+        iyy="5.5184E-06"
+        iyz="1.4992E-08"
+        izz="6.4217E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/wrist1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/wrist1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist1j"
+    type="revolute">
+    <origin
+      xyz="0.0010033 0 0.1524"
+      rpy="0.016592 0 3.1416" />
+    <parent
+      link="arm3" />
+    <child
+      link="wrist1" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="-135"
+      upper="135"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist2">
+    <inertial>
+      <origin
+        xyz="1.2629E-08 0.0011325 0.03437"
+        rpy="0 0 0" />
+      <mass
+        value="0.010769" />
+      <inertia
+        ixx="3.7831E-06"
+        ixy="-6.8983E-13"
+        ixz="-2.0905E-12"
+        iyy="3.859E-06"
+        iyz="-1.1375E-07"
+        izz="8.956E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/wrist2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/wrist2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist2j"
+    type="revolute">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="wrist1" />
+    <child
+      link="wrist2" />
+    <axis
+      xyz="0 0.016592 0.99986" />
+    <limit
+      lower="-360"
+      upper="360"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper">
+    <inertial>
+      <origin
+        xyz="-0.018875 0.098371 -0.44044"
+        rpy="0 0 0" />
+      <mass
+        value="2.9259" />
+      <inertia
+        ixx="0.12091"
+        ixy="0.00011856"
+        ixz="-0.0016103"
+        iyy="0.10184"
+        iyz="0.027925"
+        izz="0.027587" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripper-j"
+    type="fixed">
+    <origin
+      xyz="0.019031 -0.015038 0.086123"
+      rpy="-0.016592 3.1072E-05 0.0018725" />
+    <parent
+      link="wrist2" />
+    <child
+      link="gripper" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>

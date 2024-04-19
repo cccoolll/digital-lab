@@ -7,7 +7,7 @@
             "note": ["This sequence is used to move the robot to the initial position."],
             "actions": [
                 {"id":0,"cmd":"slide_to","position":-0.59682, "vel":0.05,"accel":500,"jerk":2000}
-                
+               
             ] 
         },  
         {
