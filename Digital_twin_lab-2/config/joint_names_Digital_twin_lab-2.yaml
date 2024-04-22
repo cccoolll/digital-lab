@@ -1,0 +1,1 @@
+controller_joint_names: ['', 'RobotBase-j', 'arm1-j', 'arm2-j', 'arm3-j', 'wrist1-j', 'wrist2-j', ]

@@ -11,7 +11,7 @@ p.setGravity(0, 0, 0)
 
 wellplateNum = -1
 flags = p.URDF_USE_SELF_COLLISION
-labId = p.loadURDF("C:/Users/songtao.cheng/Documents/myphd/imaging_farm/Digital Twin Lab/Digital_twin_lab-2/urdf/Digital_twin_lab-2.urdf", [0, 0, 0], useFixedBase=True, flags=flags)
+labId = p.loadURDF("Digital_twin_lab-2/urdf/Digital_twin_lab-2.urdf", [0, 0, 0], useFixedBase=True, flags=flags)
 
 
 def load_sequences_from_json(filepath):
