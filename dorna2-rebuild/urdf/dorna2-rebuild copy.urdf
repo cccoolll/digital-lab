@@ -306,6 +306,15 @@
           rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
       </material>
     </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://dorna2-rebuild/meshes/wrist2.STL" />
+      </geometry>
+    </collision>
   </link>
   <joint
     name="wrist2-j"

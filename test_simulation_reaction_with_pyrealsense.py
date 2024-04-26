@@ -30,8 +30,8 @@ camera_matrix = np.array([[fx, 0, cx], [0, fy, cy], [0, 0, 1]])
 tag_size = 0.01  # Size of the AprilTag side in meters
 tag_to_object_offset_position = [0.1, 0.03, -0.06]  # Adjust based on tag position vs. object center
 tag_to_object_offset_orientation = [0, -1.57079632679, 0]  # Adjust if there's an orientation offset
-camera_offset_position = [-0.05, 0, -0.05]  # Example offset: adjust accordingly
-camera_offset_orientation = [0, 0, 0]  # Example orientation offset in degrees: adjust accordingly
+camera_offset_position = [-0.05, 0.1, -0.05]  # Example offset: adjust accordingly
+camera_offset_orientation = [180, 0, 0]  # Example orientation offset in degrees: adjust accordingly
 
 def adjust_tag_pose_to_object_pose(tag_position, tag_orientation, offset_position, offset_orientation):
     # Convert tag orientation to quaternion
@@ -100,7 +100,8 @@ def euler_from_rotation_matrix(R):
         x = np.arctan2(-R[1, 2], R[1, 1])
         y = np.arctan2(-R[2, 0], sy)
         z = 0
-    return np.rad2deg(x), np.rad2deg(y), np.rad2deg(z)  # Convert to degrees
+    return np.rad2deg(x), np.rad2deg(y), np.rad2deg(z)  # Convert to degrees, adjust if necessary for axis
+
 
 def detect_apriltag():
     # Initialize return variables
@@ -134,8 +135,8 @@ def detect_apriltag():
         R = tag.pose_R  # Rotation matrix
         ang1, ang2 , ang3 = euler_from_rotation_matrix(R)
 
-        detected_position = [ tvec[1][0],tvec[0][0], tvec[2][0]]
-        detected_orientation = [ang2, ang1, -ang3]  # Assuming PyBullet uses the same convention
+        detected_position = [ tvec[1][0],-tvec[0][0], tvec[2][0]]
+        detected_orientation = [-ang2, -ang1, ang3]  # Assuming PyBullet uses the same convention
 
         # Display tag ID and orientation on the frame
         tag_center = np.mean(tag.corners, axis=0).astype(int)

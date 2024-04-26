@@ -2,12 +2,12 @@
   <link name="base_link">
     <visual>
       <geometry>
-        <mesh filename="cube-meshes/96wellplate.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="parts-meshes/96wellplate0.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <collision>
       <geometry>
-        <mesh filename="cube-meshes/96wellplate.stl" scale="0.001 0.001 0.001"/>
+        <mesh filename="parts-meshes/96wellplate0.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
     <inertial>

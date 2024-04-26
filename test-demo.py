@@ -55,7 +55,7 @@ for i, position in enumerate(positions):
                                     )
         wellplates.append(wellplate)
 
-
+time.sleep(3)
 def grab_plate(labId, plateId, gripperLinkIndex=7):
     # Get initial absolute positions and orientations
     gripperPos, gripperOrn = p.getLinkState(labId, gripperLinkIndex)[:2]
