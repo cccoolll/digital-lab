@@ -56,6 +56,7 @@ for i, position in enumerate(positions):
         wellplates.append(wellplate)
 
 time.sleep(3)
+
 def grab_plate(labId, plateId, gripperLinkIndex=7):
     # Get initial absolute positions and orientations
     gripperPos, gripperOrn = p.getLinkState(labId, gripperLinkIndex)[:2]
@@ -128,6 +129,8 @@ def check_collision(collision_threshold=0.0001):
             bodyA_name = p.getBodyInfo(bodyA)[1].decode('utf-8')
             bodyB_name = p.getBodyInfo(bodyB)[1].decode('utf-8')
             print(f"Collision detected between {bodyA_name} and {bodyB_name} with depth of {penetration_depth:.3f}")
+            p.addUserDebugText(f"Collision between {bodyA_name} and {bodyB_name}\nDepth: {penetration_depth:.3f}",
+                               [0, 0, 1], textColorRGB=[1, 0, 0], textSize=1.5, lifeTime=1)
             return True
     return False
 
