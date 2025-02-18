@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="digital-twin-lab-v4">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.653049682164994 0.306864386533706 0.21880478316424"
+        rpy="0 0 0" />
+      <mass
+        value="462.943637851792" />
+      <inertia
+        ixx="36.0265418542219"
+        ixy="0.00282870253676954"
+        ixz="4.69489500754803E-10"
+        iyy="76.7256657120751"
+        iyz="-0.0348331755633966"
+        izz="67.5997793901124" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.752941176470588 0.752941176470588 0.752941176470588 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="slide">
+    <inertial>
+      <origin
+        xyz="-0.072603 0.012331 0.0033339"
+        rpy="0 0 0" />
+      <mass
+        value="0.41998" />
+      <inertia
+        ixx="0.00060887"
+        ixy="2.9612E-10"
+        ixz="-1.1349E-09"
+        iyy="0.00051075"
+        iyz="1.166E-06"
+        izz="0.0010393" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/slide.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/slide.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="slide-j"
+    type="prismatic">
+    <origin
+      xyz="-1.53877545795636 0.0374543865750461 0.0706999999999998"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="slide" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="3.4"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="base">
+    <inertial>
+      <origin
+        xyz="-0.072732 0.012744 0.039902"
+        rpy="0 0 0" />
+      <mass
+        value="0.72268" />
+      <inertia
+        ixx="0.00075751"
+        ixy="1.7307E-06"
+        ixz="-3.1349E-07"
+        iyy="0.0010077"
+        iyz="3.2751E-07"
+        izz="0.0017096" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.89804 0.91765 0.92941 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base-j"
+    type="fixed">
+    <origin
+      xyz="0 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="slide" />
+    <child
+      link="base" />
+    <axis
+      xyz="0 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="arm1">
+    <inertial>
+      <origin
+        xyz="-0.031936 0.0068556 0.11306"
+        rpy="0 0 0" />
+      <mass
+        value="0.67527" />
+      <inertia
+        ixx="0.00084524"
+        ixy="-1.2855E-05"
+        ixz="-0.00044896"
+        iyy="0.0020205"
+        iyz="2.1595E-06"
+        izz="0.0019142" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/arm1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/arm1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm1j"
+    type="revolute">
+    <origin
+      xyz="-0.072527 0.0125 0.05791"
+      rpy="0 0 0" />
+    <parent
+      link="base" />
+    <child
+      link="arm1" />
+    <axis
+      xyz="0 0 1" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="arm2">
+    <inertial>
+      <origin
+        xyz="0.13154 0.44227 -0.21093"
+        rpy="0 0 0" />
+      <mass
+        value="3.6362" />
+      <inertia
+        ixx="0.052831"
+        ixy="0.00028289"
+        ixz="3.9866E-06"
+        iyy="0.019525"
+        iyz="6.6187E-07"
+        izz="0.067317" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/arm2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/arm2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm2j"
+    type="revolute">
+    <origin
+      xyz="0.095476 0 0.19707"
+      rpy="0 0 0" />
+    <parent
+      link="arm1" />
+    <child
+      link="arm2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="arm3">
+    <inertial>
+      <origin
+        xyz="0.03101 -0.0034044 -5.1127E-06"
+        rpy="0 0 0" />
+      <mass
+        value="0.29344" />
+      <inertia
+        ixx="6.7363E-05"
+        ixy="2.2346E-06"
+        ixz="3.7979E-09"
+        iyy="0.00057371"
+        iyz="-3.2528E-09"
+        izz="0.00054217" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/arm3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/arm3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="arm3-j"
+    type="revolute">
+    <origin
+      xyz="0.2032 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="arm2" />
+    <child
+      link="arm3" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist1">
+    <inertial>
+      <origin
+        xyz="3.3653E-05 5.112E-05 4.9987E-09"
+        rpy="0 0 0" />
+      <mass
+        value="0.019467" />
+      <inertia
+        ixx="6.4219E-06"
+        ixy="-3.7209E-11"
+        ixz="4.9331E-13"
+        iyy="1.9403E-06"
+        iyz="-2.6062E-12"
+        izz="5.5182E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/wrist1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/wrist1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist1j"
+    type="revolute">
+    <origin
+      xyz="0.1524 0 0"
+      rpy="0 0 0" />
+    <parent
+      link="arm3" />
+    <child
+      link="wrist1" />
+    <axis
+      xyz="0 -1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="wrist2">
+    <inertial>
+      <origin
+        xyz="0.03422 9.5448E-05 0.0094365"
+        rpy="0 0 0" />
+      <mass
+        value="0.010769" />
+      <inertia
+        ixx="8.9265E-07"
+        ixy="2.3629E-10"
+        ixz="6.4524E-08"
+        iyy="3.7831E-06"
+        iyz="2.8544E-10"
+        izz="3.8619E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/wrist2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/wrist2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="wrist2j"
+    type="revolute">
+    <origin
+      xyz="0.00016592 0 -0.0099986"
+      rpy="0 0 0" />
+    <parent
+      link="wrist1" />
+    <child
+      link="wrist2" />
+    <axis
+      xyz="1 0 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper">
+    <inertial>
+      <origin
+        xyz="0.0094918 -0.048605 0.02395"
+        rpy="0 0 0" />
+      <mass
+        value="1.25" />
+      <inertia
+        ixx="0.00027027"
+        ixy="1.4536E-06"
+        ixz="-3.1469E-06"
+        iyy="0.00026923"
+        iyz="4.1089E-07"
+        izz="0.00034054" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.75294 0.75294 0.75294 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="gripperj"
+    type="fixed">
+    <origin
+      xyz="0.049699 3.9885E-05 -0.0058763"
+      rpy="0 0 0" />
+    <parent
+      link="wrist2" />
+    <child
+      link="gripper" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="plate-incubator">
+    <inertial>
+      <origin
+        xyz="-4.59589526851101E-05 -7.05328325164567E-05 0.00753805993131557"
+        rpy="0 0 0" />
+      <mass
+        value="0.0868244944825265" />
+      <inertia
+        ixx="0.000126271352614738"
+        ixy="2.40742980192318E-07"
+        ixz="8.29625367850005E-09"
+        iyy="5.64144498466671E-05"
+        iyz="1.27388047133168E-08"
+        izz="0.000180549328693109" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/plate-incubator.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/plate-incubator.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="plate-incubator-j"
+    type="fixed">
+    <origin
+      xyz="1.4197 0.33999 0.26826"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="plate-incubator" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="plate-microscope">
+    <inertial>
+      <origin
+        xyz="4.59589526852211E-05 7.05328323838406E-05 0.00753805993131673"
+        rpy="0 0 0" />
+      <mass
+        value="0.0868244944825262" />
+      <inertia
+        ixx="0.000126271352614738"
+        ixy="2.40742980191728E-07"
+        ixz="-8.29625367427433E-09"
+        iyy="5.64144498466676E-05"
+        iyz="-1.27388068978214E-08"
+        izz="0.000180549328693109" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/plate-microscope.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://digital-twin-lab-v4/meshes/plate-microscope.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="plate-microscope-j"
+    type="fixed">
+    <origin
+      xyz="0.89452 0.40325 0.2996"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="plate-microscope" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+</robot>
